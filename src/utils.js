@@ -28,6 +28,11 @@ function onCloseBtnClick(){
 }
 
 closeBtn.addEventListener("click", onCloseBtnClick);
+document.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+        onCloseBtnClick();
+    }
+});
 
 }
 

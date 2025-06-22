@@ -159,18 +159,21 @@ k.scene("main", async () => {
                 k.onKeyDown((key) => {
                     switch (key) {
                         case "right":
+                            if (player.isInDialogue) return;
                             player.move(moveSpeed, 0);
                             player.flipX = false;
                             if (player.curAnim() !== "walk-side") player.play("walk-side");
                             player.direction = "right";
                             break;
                         case "left":
+                            if (player.isInDialogue) return;
                             player.move(-moveSpeed, 0);
                             player.flipX = true;
                             if (player.curAnim() !== "walk-side") player.play("walk-side");
                             player.direction = "left";
                             break;
                         case "up":
+                            if (player.isInDialogue) return;
                             player.move(0, -moveSpeed);
                             if (player.curAnim() !== "walk-up") {
                                 player.play("walk-up");
@@ -178,6 +181,7 @@ k.scene("main", async () => {
                             }
                             break;
                         case "down":
+                            if (player.isInDialogue) return;
                             player.move(0, moveSpeed);
                             if (player.curAnim() !== "walk-down") {
                                 player.play("walk-down");
