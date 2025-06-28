@@ -53,6 +53,8 @@ k.scene("main", async () => {
         "player",
     ]);
 
+    let visited = []
+
     for (const layer of layers){
         if (layer.name === "boundaries"){
             for (const boundary of layer.objects) {
@@ -66,8 +68,34 @@ k.scene("main", async () => {
                 ]);
                 if (boundary.name) {
                     player.onCollide(boundary.name, () => {
+                        if (!visited.includes(boundary.name)){
+                            const topStar = document.querySelector('[class="star"]')
+                            topStar.classList.add("visited")
+                            topStar.title = boundary.name
+                            visited.push(boundary.name)
+                        }
                         player.isInDialogue = true;
-                    displayDialogue(dialogueData[boundary.name], () => (player.isInDialogue = false))
+                        if (boundary.name === 'JS-Desktop'){
+                            const screenPos = k.toScreen(player.pos)
+                            
+                            const desktopOS = document.createElement("div")
+                            desktopOS.innerHTML = `<div class="iframe-holder">
+                                                <div class="explain">You are using the Computer. Click on the X to close the computer. <span class="closeComputer"> X </span></div>
+                                                <iframe src="https://portfolios-smoky.vercel.app/" 
+                                                title="Computer">
+                                                </div>`
+                            document.body.appendChild(desktopOS)
+                            // Adding transition
+                            setTimeout(() => {
+                                desktopOS.classList.add("visible")
+                            }, 10)
+                            desktopOS.querySelector(".closeComputer").addEventListener("click", () => {
+                                player.isInDialogue = false;
+                                desktopOS.remove()
+                            })
+                        }
+                        else{
+                    displayDialogue(dialogueData[boundary.name], () => (player.isInDialogue = false))}
                     })
                 }
             }

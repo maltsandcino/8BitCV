@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Tom Harrison</title>
   </head>
   <body>
     <style>
@@ -64,7 +64,7 @@
 
       .note {
         position: absolute;
-         user-select: none;
+        user-select: none;
         background-color: #000000aa;
         border-radius: 15px;
         padding: 20px;
@@ -76,11 +76,93 @@
         color: rgb(238, 238, 238);
       }
 
+      .explain {
+        background-color: #ffffff;
+        opacity: 90%;
+        display: flex;
+        padding-left: 20px;
+      }
+
+      .closeComputer {
+        margin-left: auto;
+        margin-right: 20px;
+      }
+
+      .closeComputer:hover{
+        transform: scale(1.1);
+        background-color: #aaaaaa;
+        opacity: 90%;
+      }
+
+
+      .iframe-holder {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        visibility: none;
+        opacity: 0;
+        width: 100VW;
+        height: 100VH;
+        z-index: 9999;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: opacity 1s ease;
+      }
+
+      .visible .iframe-holder {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      iframe{
+        width: 100vw;
+        height: 100vh;
+      }
+
+      .stars{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        user-select: none;
+        background-color: #000000aa;
+        border-radius: 15px;
+        padding: 20px;
+        width: 30px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        right: 50px;
+        bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        color: rgb(238, 238, 238);
+
+      }
+      .star {
+        width: 20px;
+        height: 20px;
+        filter: saturate(0)
+      }
+
+      .visited {
+        filter: saturate(1)
+      }
+
       
     </style>
     <div id="app">
       <div id="ui">
-        <p class="note">Tap/Click and hold to move, or use the cursor keys. Close a message box by hitting enter or clicking the close button to continue exploring.</p>
+        <p class="note">Tap/Click and hold to move, or use the cursor keys. Hitting Enter will close a message. Visiting an event will light up a star.</p>
+        <div class="stars">
+          <img class="star" src="public/star.svg">
+          <img class="star" src="public/star.svg">
+          <img class="star" src="public/star.svg">
+          <img class="star" src="public/star.svg">
+          <img class="star" src="public/star.svg">
+          <img class="star" src="public/star.svg">
+        </div>
         <div id="textbox-container" style="display: none;">
           <div id="textbox">
             <p id="dialogue" class="ui-text"></p>
@@ -91,7 +173,15 @@
 
         </div>
       </div>
-      <canvas id="game"></canvas>
+      <canvas id="game">      </canvas>
+      
+    </iframe>
+  </div>
+
+</body>
+</html>
+
+
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
