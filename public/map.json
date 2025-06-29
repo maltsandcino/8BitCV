@@ -81,17 +81,6 @@
                  "y":32
                 }, 
                 {
-                 "height":32,
-                 "id":33,
-                 "name":"JS-Desktop",
-                 "rotation":0,
-                 "type":"",
-                 "visible":false,
-                 "width":16,
-                 "x":256,
-                 "y":128
-                }, 
-                {
                  "height":16,
                  "id":37,
                  "name":"Projects",
@@ -277,6 +266,28 @@
                  "width":16,
                  "x":96,
                  "y":96
+                }, 
+                {
+                 "height":16,
+                 "id":72,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":false,
+                 "width":16,
+                 "x":256,
+                 "y":48
+                }, 
+                {
+                 "height":16,
+                 "id":73,
+                 "name":"JS-Desktop",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":256,
+                 "y":144
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -308,7 +319,7 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":72,
+ "nextobjectid":74,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.11.2",
